@@ -31,7 +31,11 @@ public class ArduinoWriter2 {
 		System.out.print("\nEnter the Servo desired angle: ");
 		//inputValue = (byte) System.in.read();
 		readString=reader.readLine();
-		if (readString=="q"||readString=="Q") break;
+		if (readString.equals("q")||readString.equals("Q")){
+			highestPort.writeInt(0);
+			System.out.println("Exiting the programm...");
+			break;
+		}
 		else{
 			inputValue = Integer.parseInt(readString);
 			highestPort.writeInt(inputValue);
